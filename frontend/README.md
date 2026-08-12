@@ -2,6 +2,10 @@
 
 A full-stack Data Analytics Dashboard built using React, Node.js, Express.js, and PostgreSQL.
 
+## 📸 Dashboard Preview
+
+![Data Analytics Dashboard](screenshots/dashboard.png)
+
 ## 🚀 Features
 
 - Total Sales
