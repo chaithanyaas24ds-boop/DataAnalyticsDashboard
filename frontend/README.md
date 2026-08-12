@@ -1,21 +1,22 @@
-# Data Analytics Dashboard
+# 📊 Data Analytics Dashboard
 
 A full-stack Data Analytics Dashboard built using React, Node.js, Express.js, and PostgreSQL.
 
-## Features
+## 🚀 Features
 
 - Total Sales
 - Total Orders
 - Total Profit
 - Total Customers
-- Sales Over Time chart
-- Customers by City chart
+- Sales Over Time
+- Customers by City
 - Category Sales
 - Category filter
-- Real-time data fetched from PostgreSQL
-- Responsive dashboard interface
+- Interactive dashboard cards
+- PostgreSQL database integration
+- REST API using Express.js
 
-## Technologies Used
+## 🛠️ Technologies Used
 
 ### Frontend
 - React.js
@@ -26,30 +27,27 @@ A full-stack Data Analytics Dashboard built using React, Node.js, Express.js, an
 ### Backend
 - Node.js
 - Express.js
-- REST API
+- CORS
 
 ### Database
 - PostgreSQL
-- pg (Node PostgreSQL driver)
 
-## Project Structure
+## 📁 Project Structure
 
 ```text
 DataAnalyticsDashboard/
+│
 ├── backend/
 │   ├── server.js
 │   ├── package.json
-│   └── package-lock.json
+│   └── database/
 │
-├── database/
+├── frontend/
+│   ├── src/
+│   │   ├── components/
+│   │   ├── App.jsx
+│   │   └── main.jsx
+│   ├── package.json
+│   └── vite.config.js
 │
-└── frontend/
-    ├── src/
-    │   ├── components/
-    │   ├── pages/
-    │   ├── services/
-    │   ├── styles/
-    │   ├── App.jsx
-    │   └── main.jsx
-    ├── package.json
-    └── vite.config.js
+└── README.md
