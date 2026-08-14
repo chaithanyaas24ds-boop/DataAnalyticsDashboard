@@ -13,7 +13,7 @@ function SalesChart() {
   const [dailySales, setDailySales] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/daily-sales")
+    fetch("https://data-analytics-backend-0s3q.onrender.com/api/daily-sales")
       .then((response) => response.json())
       .then((data) => {
         const formattedData = data.map((item) => ({

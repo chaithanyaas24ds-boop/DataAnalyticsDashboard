@@ -13,7 +13,9 @@ function CustomerChart() {
   const [customersByCity, setCustomersByCity] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/customers-by-city")
+    fetch(
+      "https://data-analytics-backend-0s3q.onrender.com/api/customers-by-city"
+    )
       .then((response) => response.json())
       .then((data) => {
         const formattedData = data.map((item) => ({

@@ -13,8 +13,11 @@ function App() {
   const [categorySales, setCategorySales] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("All");
 
+  const BACKEND_URL =
+    "https://data-analytics-backend-0s3q.onrender.com";
+
   useEffect(() => {
-    fetch("http://localhost:5000/api/total-sales")
+    fetch(`${BACKEND_URL}/api/total-sales`)
       .then((response) => response.json())
       .then((data) => {
         setTotalSales(data.totalSales);
@@ -23,7 +26,7 @@ function App() {
         console.error("Error fetching total sales:", error);
       });
 
-    fetch("http://localhost:5000/api/total-orders")
+    fetch(`${BACKEND_URL}/api/total-orders`)
       .then((response) => response.json())
       .then((data) => {
         setTotalOrders(data.totalOrders);
@@ -32,7 +35,7 @@ function App() {
         console.error("Error fetching total orders:", error);
       });
 
-    fetch("http://localhost:5000/api/total-customers")
+    fetch(`${BACKEND_URL}/api/total-customers`)
       .then((response) => response.json())
       .then((data) => {
         setTotalCustomers(data.totalCustomers);
@@ -41,7 +44,7 @@ function App() {
         console.error("Error fetching total customers:", error);
       });
 
-    fetch("http://localhost:5000/api/total-profit")
+    fetch(`${BACKEND_URL}/api/total-profit`)
       .then((response) => response.json())
       .then((data) => {
         setTotalProfit(data.totalProfit);
@@ -52,17 +55,17 @@ function App() {
 
     const categoryUrl =
       selectedCategory === "All"
-        ? "http://localhost:5000/api/category-sales"
-        : `http://localhost:5000/api/category-sales?category=${selectedCategory}`;
+        ? `${BACKEND_URL}/api/category-sales`
+        : `${BACKEND_URL}/api/category-sales?category=${selectedCategory}`;
 
     fetch(categoryUrl)
       .then((response) => response.json())
       .then((data) => {
         setCategorySales(data);
-    })
-     .catch((error) => {
+      })
+      .catch((error) => {
         console.error("Error fetching category sales:", error);
-    });
+      });
   }, [selectedCategory]);
 
   return (
@@ -119,32 +122,32 @@ function App() {
               value={selectedCategory}
               onChange={(e) => setSelectedCategory(e.target.value)}
               style={{
-              padding: "12px 15px",
-              borderRadius: "8px",
-              border: "1px solid #ccc",
-              backgroundColor: "white",
-              color: "black",
-              fontSize: "15px",
-              cursor: "pointer",
-              minWidth: "200px",
-            }}
-          >
-            <option value="All">All Categories</option>
-            <option value="Electronics">Electronics</option>
-            <option value="Accessories">Accessories</option>
-            <option value="Furniture">Furniture</option>
-          </select>
-        </div>
+                padding: "12px 15px",
+                borderRadius: "8px",
+                border: "1px solid #ccc",
+                backgroundColor: "white",
+                color: "black",
+                fontSize: "15px",
+                cursor: "pointer",
+                minWidth: "200px",
+              }}
+            >
+              <option value="All">All Categories</option>
+              <option value="Electronics">Electronics</option>
+              <option value="Accessories">Accessories</option>
+              <option value="Furniture">Furniture</option>
+            </select>
+          </div>
 
           <div
             style={{
-            display: "flex",
-            flexWrap: "wrap",
-            alignItems: "flex-start",
-            gap: "20px",
-            width: "100%",
-          }}
-        >
+              display: "flex",
+              flexWrap: "wrap",
+              alignItems: "flex-start",
+              gap: "20px",
+              width: "100%",
+            }}
+          >
             <DashboardCard
               title="Total Sales"
               value={`₹${totalSales.toLocaleString("en-IN")}`}
@@ -167,6 +170,7 @@ function App() {
 
             <SalesChart />
             <CustomerChart />
+
             <div
               style={{
                 backgroundColor: "white",
@@ -190,7 +194,12 @@ function App() {
                 >
                   <span>{item.category}</span>
 
-                  <span style={{ color: "black", fontWeight: "bold" }}>
+                  <span
+                    style={{
+                      color: "black",
+                      fontWeight: "bold",
+                    }}
+                  >
                     ₹{Number(item.total_sales).toLocaleString("en-IN")}
                   </span>
                 </div>
